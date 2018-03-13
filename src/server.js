@@ -39,7 +39,7 @@ server
     <body>
         <div id="root">${markup}</div>
     </body>
-</html>`
+</html>`,
       );
     }
   });

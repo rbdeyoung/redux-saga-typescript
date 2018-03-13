@@ -41,18 +41,18 @@ module.exports = {
             },
         };
 
-        // const tslintLoader = {
-        //     include,
-        //     enforce: 'pre',
-        //     test: /\.tsx?$/,
-        //     loader: 'tslint-loader',
-        //     options: {
-        //         emitErrors: true,
-        //         configFile: './tslint.json',
-        //     },
-        // };
-        //
-        // config.module.rules.push(tslintLoader);
+        const tslintLoader = {
+            include,
+            enforce: 'pre',
+            test: /\.tsx?$/,
+            loader: 'tslint-loader',
+            options: {
+                emitErrors: true,
+                configFile: './tslint.json',
+            },
+        };
+
+        config.module.rules.push(tslintLoader);
 
         // Fully replace babel-loader with ts-loader
         //config.module.rules[babelLoader] = tsLoader;
@@ -65,7 +65,6 @@ module.exports = {
         // - UNCOMMENT line 68
         //
         config.module.rules.push(tsLoader)
-
         return config;
     },
 };

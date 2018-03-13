@@ -8,9 +8,6 @@ logs
 
 /node_modules/
 /npm-debug.log
-/.idea/vcs.xml
-/.idea/workspace.xml
-/.idea
 /coverage
 /.nyc_output
 /.tmp

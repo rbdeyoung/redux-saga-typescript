@@ -1,0 +1,60 @@
+{
+  "extends": ["typestrict", "tslint:recommended", "tslint-react"],
+  "rulesDirectory": ["node_modules/tslint-sonarts/lib/rules", "node_modules/tslint-microsoft-contrib", "node_modules/tslint-react/rules"],
+  "rules": {
+    "arrow-parens": [
+      true,
+      "ban-single-arg-parens"
+    ],
+    "arrow-return-shorthand": [
+      true,
+      "multiline"
+    ],
+    "import-spacing": true,
+    "indent": [
+      true,
+      "spaces",
+      4
+    ],
+    "interface-name": [
+      true,
+      "never-prefix"
+    ],
+    "jsx-alignment": true,
+    "jsx-no-multiline-js": false,
+    "jsx-self-close": true,
+    "jsx-wrap-multiline": false,
+    "max-line-length": [
+      false
+    ],
+    "no-default-export": true,
+    "no-duplicate-imports": false,
+    "no-namespace": [
+      false,
+      "allow-declarations"
+    ],
+    "no-submodule-imports": [
+      false
+    ],
+    "no-var-keyword": true,
+    "object-literal-sort-keys": false,
+    "only-arrow-functions": [
+      true
+    ],
+    "ordered-imports": false,
+    "prefer-conditional-expression": true,
+    "prefer-object-spread": true,
+    "quotemark": [
+      true,
+      "single",
+      "jsx-double"
+    ],
+    "semicolon": [
+      true,
+      "never"
+    ],
+    "whitespace": [
+      true
+    ]
+  }
+}
