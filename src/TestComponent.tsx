@@ -1,11 +1,7 @@
 import * as React from 'react'
+import { SFC } from 'react'
 
-export class TestComponent extends React.Component<{}, {}> {
-    public render() {
-        return (
-            <div className="testComponent">
-                This is a test component
-            </div>
-        )
-    }
-}
+export const TestComponent: SFC<{}> = () =>
+    <div className="testComponent">
+        This is a test component
+    </div>
