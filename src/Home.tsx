@@ -1,12 +1,11 @@
 import * as React from 'react'
 import './Home.css'
-import logo from './react.svg'
 import { TestComponent } from './TestComponent'
 import { SFC } from 'react'
+import logo from './react.svg'
+export const Home: SFC<{}> = () =>
 
-export const Home: SFC<{}> = () => {
-
-    return <div className="Home">
+    <div className="Home">
         <div className="Home-header">
             <img src={logo} className="Home-logo" alt="logo"/>
             <h2>Welcome to Razzle</h2>
@@ -28,5 +27,3 @@ export const Home: SFC<{}> = () => {
         </ul>
         <TestComponent/>
     </div>
-
-}

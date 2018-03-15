@@ -1,13 +1,11 @@
-import * as React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import { Home } from './Home';
+import * as React from 'react'
+import { Route, Switch } from 'react-router-dom'
+import { Home } from './Home'
+import './App.css'
+import {SFC} from 'react'
 
-import './App.css';
-
-const App = () => (
+export const App:SFC<{}> = () => (
     <Switch>
-        <Route exact path="/" component={ Home } />
+        <Route exact={true} path="/" component={Home} />
     </Switch>
-);
-
-export default App;
+)
