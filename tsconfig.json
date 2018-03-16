@@ -30,5 +30,13 @@
     "jest",
     "razzle.config.js"
   ],
-  "types": ["typePatches", "node", "webpack-env"]
+  "include": [
+    "./src",
+    "./typePatches"
+  ],
+  "types": [
+    "typePatches",
+    "node",
+    "webpack-env"
+  ]
 }
