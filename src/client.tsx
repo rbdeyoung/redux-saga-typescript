@@ -1,6 +1,6 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
-import { Root } from './Root'
+import { Root } from './app/Root'
 import { configureStore } from './app/store/configureStore'
 import createHistory from 'history/createHashHistory'
 
