@@ -44,9 +44,9 @@ export const HomePageComponent: SFC<HomeProps> = ({counter, onIncrement, onDecre
             </li>
         </ul>
         <div>
-            <button onClick={onDecrement}>Decrement</button>
+            <button onClick={onDecrement}>-</button>
             {counter}
-            <button onClick={onIncrement}>Increment</button>
+            <button onClick={onIncrement}>+</button>
         </div>
         <TestComponent/>
     </div>
