@@ -1,4 +1,4 @@
-import app from './server';
+import { server as app} from './server';
 import http from 'http';
 
 const server = http.createServer(app);
