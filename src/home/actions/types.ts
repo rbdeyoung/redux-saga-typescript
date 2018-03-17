@@ -1,0 +1,4 @@
+const UPDATE_COUNTER = 'home/UPDATE_COUNTER'
+export {
+    UPDATE_COUNTER,
+}

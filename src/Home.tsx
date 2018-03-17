@@ -1,9 +1,27 @@
 import * as React from 'react'
 import './Home.css'
-import { TestComponent } from './TestComponent'
-import { SFC } from 'react'
+import {TestComponent} from './TestComponent'
+import {SFC} from 'react'
 import logo from './react.svg'
-export const Home: SFC<{}> = () =>
+import {RootState} from './app/reducers'
+import {updateCounter} from './home/actions/creators'
+import {CounterOperation} from './home/types'
+import {connect, Dispatch} from 'react-redux'
+
+export interface HomePageStateProps {
+    counter: number
+}
+
+export interface HomePageDispatchProps {
+    onIncrement: () => void
+    onDecrement: () => void
+}
+
+export interface HomeProps extends HomePageStateProps, HomePageDispatchProps {
+
+}
+
+export const HomePageComponent: SFC<HomeProps> = ({counter, onIncrement, onDecrement}) =>
 
     <div className="Home">
         <div className="Home-header">
@@ -25,5 +43,21 @@ export const Home: SFC<{}> = () =>
                 <a href="https://palmer.chat">Community Slack</a>
             </li>
         </ul>
+        <div>
+            <button onClick={onDecrement}>-</button>
+            {counter}
+            <button onClick={onIncrement}>+</button>
+        </div>
         <TestComponent/>
     </div>
+
+export const mapStateToProps: (_: RootState) => HomePageStateProps = state => ({
+    counter: state.homePage.counter.value,
+})
+
+export const mapDispatchToProps = (dispatch: Dispatch<RootState>): HomePageDispatchProps => ({
+    onDecrement: () => dispatch(updateCounter(CounterOperation.DECREMENT)),
+    onIncrement: () => dispatch(updateCounter(CounterOperation.INCREMENT)),
+})
+
+export const Home = connect<HomePageStateProps, HomePageDispatchProps, {}, RootState>(mapStateToProps, mapDispatchToProps)(HomePageComponent)
