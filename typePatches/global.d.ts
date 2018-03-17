@@ -1,5 +1,6 @@
+// https://medium.com/@shrimpy/how-to-strongly-type-your-localization-resource-in-typescript-97a464291289
+
 declare interface RootState {
-    mainComponent: { item: string },
     homePage: { counter: { value: number} }
 }
 
