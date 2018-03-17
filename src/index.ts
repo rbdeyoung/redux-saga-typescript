@@ -1,11 +1,11 @@
-import { server as app} from './server'
+import app from './server'
 import http from 'http'
 
 const server = http.createServer(app)
 
 let currentApp = app
 
-server.listen(process.env.PORT || 3000, (error: any) => {
+server.listen(process.env.PORT || 3000, (error:any) => {
   if (error) {
     console.log(error)
   }

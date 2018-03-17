@@ -1,11 +1,11 @@
 import * as React from 'react'
-import '../Home.css'
+import './Home.css'
 import {TestComponent} from './TestComponent'
 import {SFC} from 'react'
 import logo from './react.svg'
-import {RootState} from '../../app/reducers'
-import {updateCounter} from '../actions/creators'
-import {CounterOperation} from '../types'
+import {RootState} from '../app/reducers/index'
+import {updateCounter} from './actions/creators'
+import {CounterOperation} from './types'
 import {connect, Dispatch} from 'react-redux'
 
 export interface HomePageStateProps {
@@ -44,7 +44,7 @@ export const HomePageComponent: SFC<HomeProps> = ({counter, onIncrement, onDecre
             </li>
         </ul>
         <div>
-            <button onClick={onDecrement}>-</button>
+            <button onClick={onDecrement}>Decrement</button>
             {counter}
             <button onClick={onIncrement}>+</button>
         </div>

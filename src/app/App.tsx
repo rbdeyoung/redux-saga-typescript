@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { Route, Switch } from 'react-router-dom'
-import { Home } from '../home/components/Home'
+import { Home } from '../home/Home'
 import './App.css'
 import {SFC} from 'react'
 

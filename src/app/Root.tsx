@@ -6,7 +6,7 @@ import { ConnectedRouter } from 'react-router-redux'
 import { Route } from 'react-router-dom'
 import { App } from './App'
 import createHistory from 'history/createHashHistory'
-import {RootState} from './reducers'
+import {RootState} from './reducers/index'
 
 export const history = createHistory()
 
