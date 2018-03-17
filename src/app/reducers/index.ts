@@ -6,7 +6,7 @@ export interface RootState {
     homePage: HomePageState
 }
 
-export const rootReducer = combineReducers({
+export const rootReducer = combineReducers<RootState>({
     mainComponent,
     homePage
 })

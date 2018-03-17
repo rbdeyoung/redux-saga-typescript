@@ -1,9 +1,9 @@
 import createSagaMiddleware from 'redux-saga'
-import { all } from 'redux-saga/effects'
-import {createStore, applyMiddleware } from 'redux'
+import {all} from 'redux-saga/effects'
+import {createStore, applyMiddleware, StoreEnhancerStoreCreator, Store, Reducer, StoreEnhancer} from 'redux'
 import {rootReducer, RootState} from '../reducers'
 import {routerMiddleware} from 'react-router-redux'
-import { History } from 'history'
+import {History} from 'history'
 import {composeWithDevTools} from 'redux-devtools-extension/logOnlyInProduction'
 
 function* rootSaga() {
@@ -14,7 +14,7 @@ export const configureStore = (history: History, preloadedState: RootState) => {
     const sagaMiddleware = createSagaMiddleware()
     const middleware = [sagaMiddleware, routerMiddleware(history)]
 
-    const store = createStore(rootReducer, preloadedState, composeWithDevTools({})(
+    const store: Store<RootState> = createStore<RootState>(rootReducer, preloadedState, composeWithDevTools({})(
         applyMiddleware(...middleware),
     ))
 
