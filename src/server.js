@@ -19,7 +19,7 @@ server
     .get('/*', (req, res) => {
         const context = {}
 
-        const preloadedState = {mainComponent: {item: 'Server Initial State!'}}
+        const preloadedState = {mainComponent: {item: 'Server Initial State!'}, homePage: { counter: { value:  0 }}}
 
         // Create a new Redux store instance
         const store = configureStore(history, preloadedState)
