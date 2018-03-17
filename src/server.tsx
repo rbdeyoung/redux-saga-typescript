@@ -8,16 +8,17 @@ import * as serialize from 'serialize-javascript'
 import createHistory from 'history/createMemoryHistory'
 import { Provider } from 'react-redux'
 
-const assets = require(process.env.RAZZLE_ASSETS_MANIFEST)
+// tslint:disable-next-line:no-var-requires
+const assets = require(process.env.RAZZLE_ASSETS_MANIFEST as string)
 
 export const history = createHistory()
 
 const server = express()
 server
     .disable('x-powered-by')
-    .use(express.static(process.env.RAZZLE_PUBLIC_DIR))
+    .use(express.static(process.env.RAZZLE_PUBLIC_DIR as string))
     .get('/*', (req, res) => {
-        const context = {}
+        const context:any = {}
 
         const preloadedState = {mainComponent: {item: 'Server Initial State!'}, homePage: { counter: { value:  0 }}}
 
