@@ -226,7 +226,7 @@ In development mode (`razzle start`), Razzle bundles both your client and server
 - [zeit/next.js](https://github.com/zeit/next.js)
 
 
-#### Author
+### Author
 - [Jared Palmer](https://twitter.com/jaredpalmer)
 
 ---
