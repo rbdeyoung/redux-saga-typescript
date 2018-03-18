@@ -40,13 +40,16 @@
     "typestrict": "^0.0.6"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
     "core-js": "^2.5.3",
     "express": "^4.16.3",
+    "font-awesome": "^4.7.0",
     "history": "^4.7.2",
+    "jest": "^22.4.2",
+    "material-ui": "^1.0.0-beta.38",
     "moment": "^2.20.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-jss": "^8.3.5",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",

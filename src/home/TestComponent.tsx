@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SFC } from 'react'
+import {SFC} from 'react'
 
 export const TestComponent: SFC<{}> = () =>
     <div className="testComponent">
