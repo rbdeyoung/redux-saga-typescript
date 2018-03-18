@@ -7,7 +7,8 @@ import {connect, Dispatch} from 'react-redux'
 import {withStyles} from 'material-ui/styles'
 import Paper from 'material-ui/Paper'
 import Tabs, {Tab} from 'material-ui/Tabs'
-import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles'
+
+// import {MuiThemeProvider, createMuiTheme} from 'material-ui/styles'
 
 export interface HomePageStateProps {
     counter: number
@@ -31,36 +32,36 @@ const decorate = withStyles(({palette, spacing}) => ({
     },
 }))
 
-const theme = createMuiTheme()
-
 const onChange = () => undefined
 
-const DecoratedHomePageComponent = decorate<HomeProps>(({counter, onIncrement, onDecrement, classes}) => (
-    <MuiThemeProvider theme={theme}>
-        <div>
-            <Paper className={classes.root}>
-                <Tabs
-                    value={5}
-                    onChange={onChange}
-                    indicatorColor="primary"
-                    textColor="primary"
-                    centered={true}
-                >
-                    <Tab label="Simple Redux Demo"/>
-                    <Tab label="Saga Demo" />
-                </Tabs>
+// const theme = createMuiTheme()
+// <MuiThemeProvider theme={theme}>
+// </MuiThemeProvider>
 
-            </Paper>
+const DecoratedHomePageComponent = decorate<HomeProps>(({counter, onIncrement, onDecrement, classes}) => (
+
+    <div>
+        <Paper className={classes.root}>
+            <Tabs
+                value={5}
+                onChange={onChange}
+                indicatorColor="primary"
+                textColor="primary"
+                centered={true}
+            >
+                <Tab label="Simple Redux Demo"/>
+                <Tab label="Saga Demo"/>
+            </Tabs>
+        </Paper>
+        <div>
             <div>
-                <div>
-                    <button onClick={onDecrement}>Decrement</button>
-                    {counter}
-                    <button onClick={onIncrement}>Increment</button>
-                </div>
-                <TestComponent/>
+                <button onClick={onDecrement}>-</button>
+                {counter}
+                <button onClick={onIncrement}>+</button>
             </div>
+            <TestComponent/>
         </div>
-    </MuiThemeProvider>
+    </div>
 ))
 
 export const mapStateToProps: (_: RootState) => HomePageStateProps = state => ({
