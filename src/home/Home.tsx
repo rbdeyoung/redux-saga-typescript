@@ -63,7 +63,7 @@ const DecoratedHomePageComponent = decorate<HomeProps>(({counter, onIncrement, o
             </Toolbar>
         </AppBar>
         <div className="Home">
-            <Grid container={true} spacing={24}>
+            <Grid container={true} spacing={12}>
                 <Grid item={true} xs={12}>
                     <Paper>
                         <Tabs
@@ -79,14 +79,17 @@ const DecoratedHomePageComponent = decorate<HomeProps>(({counter, onIncrement, o
 
                     </Paper>
                 </Grid>
-                <Grid item={true} xs={8} sm={4}>
-                    <button onClick={onDecrement}>Decrement</button>
-                </Grid>
-                <Grid item={true} xs={8} sm={4}>
-                    <p className="counter">{counter}</p>
-                </Grid>
-                <Grid item={true} xs={8} sm={4}>
-                    <button onClick={onIncrement}>Increment</button>
+
+                <Grid item={true} xs={12} justify="center">
+                    <Grid item={true} >
+                        <button onClick={onDecrement}>Decrement</button>
+                    </Grid>
+                    <Grid item={true} >
+                        <p className="counter">{counter}</p>
+                    </Grid>
+                    <Grid item={true} >
+                        <button onClick={onIncrement}>Increment</button>
+                    </Grid>
                 </Grid>
             </Grid>
         </div>
