@@ -3,8 +3,9 @@ import {NavLink, Route, Switch} from 'react-router-dom'
 import { Home } from '../home/Home'
 import './App.css'
 import {SFC} from 'react'
+import logo from './react.svg'
+
 const activeStyle = { color: '#fff', backgroundColor: '#080808' }
-import logo from '../home/react.svg'
 export const App:SFC<{}> = () => (
 
     <div className="container">
