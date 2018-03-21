@@ -7,6 +7,8 @@ import { Route } from 'react-router-dom'
 import { App } from './App'
 import createHistory from 'history/createHashHistory'
 import {RootState} from './reducers/index'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap'
 
 export const history = createHistory()
 

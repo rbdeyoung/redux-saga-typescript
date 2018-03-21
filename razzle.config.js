@@ -22,6 +22,7 @@ module.exports = {
                 )
         );
 
+
         // Safely locate Babel-Loader in Razzle's webpack internals
         const babelLoader = config.module.rules.findIndex(
             rule => rule.options && rule.options.babelrc
@@ -51,6 +52,12 @@ module.exports = {
                 configFile: './tslint.json',
             },
         };
+
+
+        config.plugins.push(new webpack.ProvidePlugin({
+            $: "jquery",
+            jQuery: "jquery"
+        }))
 
         config.module.rules.push(tslintLoader);
 
