@@ -1,4 +1,3 @@
-import * as t from '../actions/types'
 import { Action, handleActions } from 'redux-actions'
 import { CounterOperation } from '../types'
 
@@ -11,7 +10,7 @@ const initialState: CounterState = {
 }
 
 export const counter = handleActions<CounterState, CounterOperation>({
-    [t.UPDATE_COUNTER]: (state: CounterState, action: Action<CounterOperation>) =>
+    ['DisablingThisForNow']: (state: CounterState, action: Action<CounterOperation>) =>
         ({ value: state.value + (action.payload === CounterOperation.INCREMENT ? 1 : -1)})
     ,
 }, initialState)

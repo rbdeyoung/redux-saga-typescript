@@ -1,62 +1,48 @@
 import * as React from 'react'
 import './Home.css'
-import {TestComponent} from './TestComponent'
 import {SFC} from 'react'
-import logo from './react.svg'
-import {RootState} from '../app/reducers/index'
+import {RootState} from '../app/reducers'
 import {updateCounter} from './actions/creators'
 import {CounterOperation} from './types'
 import {connect, Dispatch} from 'react-redux'
+import {UIBlocker} from '../app/reducers/uiBlockers'
 
 export interface HomePageStateProps {
-    counter: number
+    counter: number,
+    blockers: UIBlocker[],
 }
 
 export interface HomePageDispatchProps {
     onIncrement: () => void
-    onDecrement: () => void
+    // onDecrement: () => void
 }
 
 export interface HomeProps extends HomePageStateProps, HomePageDispatchProps {
 
 }
 
-export const HomePageComponent: SFC<HomeProps> = ({counter, onIncrement, onDecrement}) =>
+export const HomePageComponent: SFC<HomeProps> = ({counter, blockers, onIncrement}) =>
 
     <div className="Home">
-        <div className="Home-header">
-            <img src={logo} className="Home-logo" alt="logo"/>
-            <h2>Welcome to Razzle</h2>
-        </div>
-        <p className="Home-intro">
-            To get started, edit <code>src/App.tsx</code> or{' '}
-            <code>src/Home.tsx</code> and save to reload.
-        </p>
-        <ul className="Home-resources">
-            <li>
-                <a href="https://github.com/jaredpalmer/razzle">Docs</a>
-            </li>
-            <li>
-                <a href="https://github.com/jaredpalmer/razzle/issues">Issues</a>
-            </li>
-            <li>
-                <a href="https://palmer.chat">Community Slack</a>
-            </li>
-        </ul>
         <div>
-            <button onClick={onDecrement}>Decrement</button>
+            {/*<button onClick={onDecrement}>Decrement</button>*/}
             {counter}
-            <button onClick={onIncrement}>+</button>
+            <button onClick={onIncrement}>Issue a call</button>
         </div>
-        <TestComponent/>
+
+        <ul>
+            {blockers.map(b => <li key={b.id}>{b.id}</li>)}
+        </ul>
     </div>
 
-export const mapStateToProps: (_: RootState) => HomePageStateProps = state => ({
-    counter: state.homePage.counter.value,
-})
+export const mapStateToProps: (_: RootState) => HomePageStateProps = state =>
+    ({
+        counter: state.uiBlockers.count,
+        blockers: state.uiBlockers.list
+    })
 
 export const mapDispatchToProps = (dispatch: Dispatch<RootState>): HomePageDispatchProps => ({
-    onDecrement: () => dispatch(updateCounter(CounterOperation.DECREMENT)),
+    // onDecrement: () => dispatch(updateCounter(CounterOperation.DECREMENT)),
     onIncrement: () => dispatch(updateCounter(CounterOperation.INCREMENT)),
 })
 
