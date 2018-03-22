@@ -6,7 +6,7 @@ import uid from 'uid-safe'
 import {CounterOperation} from './types'
 import {Action} from 'redux-actions'
 
-export function* loadCounterUpdate(action: Action<CounterOperation>): SagaIterator {
+export function* issueCallUpdate(action: Action<CounterOperation>): SagaIterator {
 
     // Simulate long running job id
     const id: string = uid.sync(12)
@@ -14,16 +14,16 @@ export function* loadCounterUpdate(action: Action<CounterOperation>): SagaIterat
     // Simulate long running job time
     const callLength: number = crypto.getRandomValues(new Uint32Array(1))[0] % 10
 
-    yield put(startBlockingUI({ id, callName: 'loadCounterUpdate', callStart: Date.now() }))
+    yield put(startBlockingUI({ id, callName: 'loadCounterUpdate', callStart: Date.now(), duration: callLength }))
 
     yield call(delay, callLength * 1000)
     yield put(stopBlockingUI(id))
 }
 
-export function* watchLoadCounterUpdate() {
-    yield takeEvery(t.UPDATE_COUNTER, loadCounterUpdate)
+export function* watchIssueCallUpdate() {
+    yield takeEvery(t.ISSUE_CALL, issueCallUpdate)
 }
 
 export const sagas = [
-    watchLoadCounterUpdate(),
+    watchIssueCallUpdate(),
 ]

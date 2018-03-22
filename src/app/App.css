@@ -9,6 +9,14 @@ body {
   height: 80px;
 }
 
+.Home-logo.paused {
+  animation-play-state: paused
+}
+
+.Home-logo.busy {
+  animation-play-state: running
+}
+
 .Home-header {
   background-color: #222;
   height: 115px;

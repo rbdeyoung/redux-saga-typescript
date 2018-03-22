@@ -2,28 +2,20 @@
   text-align: center;
 }
 
-/*.Home-logo {*/
-  /*animation: Home-logo-spin infinite 20s linear;*/
-  /*height: 80px;*/
-/*}*/
+.Home h2, .Home button {
+  margin-bottom: 25px;
+}
 
-/*.Home-header {*/
-  /*background-color: #222;*/
-  /*height: 115px;*/
-  /*padding: 20px;*/
-  /*color: white;*/
-/*}*/
+.Home table {
+  margin:0 auto;
+  width: auto;
+  text-align: left;
+}
 
-/*.Home-intro {*/
-  /*font-size: large;*/
-/*}*/
+.Home table tr>td,th {
+  width: 250px;
+}
 
-/*.Home-resources {*/
-  /*list-style: none;*/
-/*}*/
-
-/*.Home-resources > li {*/
-  /*display: inline-block;*/
-  /*padding: 1rem;*/
-/*}*/
-
+.Home td.duration, th.duration {
+  width: 100px;
+}

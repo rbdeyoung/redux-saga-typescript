@@ -1,4 +1,4 @@
-const UPDATE_COUNTER = 'home/UPDATE_COUNTER'
+const ISSUE_CALL = 'home/ISSUE_CALL'
 export {
-    UPDATE_COUNTER,
+    ISSUE_CALL,
 }

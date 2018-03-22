@@ -20,7 +20,7 @@ server
     .get('/*', (req, res) => {
         const context:any = {}
 
-        const preloadedState = { homePage: { counter: { value:  0 }}}
+        const preloadedState = { uiBlockers: { list: [], count: 0 } }
 
         // Create a new Redux store instance
         const store = configureStore(history, preloadedState)

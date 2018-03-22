@@ -2,8 +2,7 @@ import * as React from 'react'
 import './Home.css'
 import {SFC} from 'react'
 import {RootState} from '../app/reducers'
-import {updateCounter} from './actions/creators'
-import {CounterOperation} from './types'
+import {issueCall} from './actions/creators'
 import {connect, Dispatch} from 'react-redux'
 import {UIBlocker} from '../app/reducers/uiBlockers'
 
@@ -13,26 +12,38 @@ export interface HomePageStateProps {
 }
 
 export interface HomePageDispatchProps {
-    onIncrement: () => void
-    // onDecrement: () => void
+    onIssueCall: () => void
 }
 
 export interface HomeProps extends HomePageStateProps, HomePageDispatchProps {
 
 }
 
-export const HomePageComponent: SFC<HomeProps> = ({counter, blockers, onIncrement}) =>
-
+export const HomePageComponent: SFC<HomeProps> = ({counter, blockers, onIssueCall}) =>
     <div className="Home">
+        <h2>Saga Demo</h2>
         <div>
-            {/*<button onClick={onDecrement}>Decrement</button>*/}
-            {counter}
-            <button onClick={onIncrement}>Issue a call</button>
+            <button onClick={onIssueCall}>Issue a call</button>
         </div>
+        <table className="table">
+            <thead>
+            <tr>
+                <th scope="col">Uid</th>
+                <th scope="col">Method Name</th>
+                <th className="duration" scope="col">Duration</th>
+            </tr>
+            </thead>
+            <tbody>
+            {blockers.map(({id, callName, duration}) => (
+                <tr>
+                    <th scope="row">{id}</th>
+                    <td>{callName}</td>
+                    <td className="duration">{duration}</td>
+                </tr>
+            ))}
 
-        <ul>
-            {blockers.map(b => <li key={b.id}>{b.id}</li>)}
-        </ul>
+            </tbody>
+        </table>
     </div>
 
 export const mapStateToProps: (_: RootState) => HomePageStateProps = state =>
@@ -42,8 +53,7 @@ export const mapStateToProps: (_: RootState) => HomePageStateProps = state =>
     })
 
 export const mapDispatchToProps = (dispatch: Dispatch<RootState>): HomePageDispatchProps => ({
-    // onDecrement: () => dispatch(updateCounter(CounterOperation.DECREMENT)),
-    onIncrement: () => dispatch(updateCounter(CounterOperation.INCREMENT)),
+    onIssueCall: () => dispatch(issueCall()),
 })
 
 export const Home = connect<HomePageStateProps, HomePageDispatchProps, {}, RootState>(mapStateToProps, mapDispatchToProps)(HomePageComponent)
