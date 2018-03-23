@@ -7,7 +7,6 @@ import {connect, Dispatch} from 'react-redux'
 import {UIBlocker} from '../app/reducers/uiBlockers'
 
 export interface HomePageStateProps {
-    counter: number,
     blockers: UIBlocker[],
 }
 
@@ -19,7 +18,7 @@ export interface HomeProps extends HomePageStateProps, HomePageDispatchProps {
 
 }
 
-export const HomePageComponent: SFC<HomeProps> = ({counter, blockers, onIssueCall}) =>
+export const HomePageComponent: SFC<HomeProps> = ({blockers, onIssueCall}) =>
     <div className="Home">
         <h2>Saga Demo</h2>
         <div>
@@ -35,7 +34,7 @@ export const HomePageComponent: SFC<HomeProps> = ({counter, blockers, onIssueCal
             </thead>
             <tbody>
             {blockers.map(({id, callName, duration}) => (
-                <tr>
+                <tr key={id}>
                     <th scope="row">{id}</th>
                     <td>{callName}</td>
                     <td className="duration">{duration}</td>
@@ -48,7 +47,6 @@ export const HomePageComponent: SFC<HomeProps> = ({counter, blockers, onIssueCal
 
 export const mapStateToProps: (_: RootState) => HomePageStateProps = state =>
     ({
-        counter: state.uiBlockers.count,
         blockers: state.uiBlockers.list
     })
 

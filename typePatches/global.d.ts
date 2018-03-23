@@ -3,7 +3,7 @@
 declare interface RootState {
     uiBlockers: {
         list: any[],
-        count: 0,
+        count: number,
     }
 }
 

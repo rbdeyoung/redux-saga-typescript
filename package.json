@@ -62,6 +62,9 @@
     "uid-safe": "^2.1.5"
   },
   "jest": {
+    "setupFiles": [
+      "./src/setupTests.js"
+    ],
     "transform": {
       ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
       "^.+\\.css$": "<rootDir>/node_modules/razzle/config/jest/cssTransform.js",

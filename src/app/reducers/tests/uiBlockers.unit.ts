@@ -1,5 +1,4 @@
 import {UIBlocker, uiBlockers, UIBlockersState} from '../uiBlockers'
-import * as t from '../../actions/types'
 import {startBlockingUI, stopBlockingUI} from '../../actions/creators'
 
 describe('app/reducer/uiblockers', () => {
@@ -56,7 +55,7 @@ describe('app/reducer/uiblockers', () => {
                 ]
             }
             result = uiBlockers(existingState, startBlockingUI(payload))
-            expect(result).toEqual(expectedState);
+            expect(result).toEqual(expectedState)
         })
     })
 
@@ -95,7 +94,6 @@ describe('app/reducer/uiblockers', () => {
                 ]
             }
             result = uiBlockers(existingState, stopBlockingUI(payload))
-            console.log(result)
             expect(result).toEqual(expectedState)
         })
     })

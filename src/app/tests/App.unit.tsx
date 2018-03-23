@@ -1,7 +1,7 @@
 import * as React from 'react'
 import {shallow, ShallowWrapper} from 'enzyme'
 import {AppComponent, AppStateProps, mapStateToProps} from '../App'
-import {Switch, Route, NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom'
 import {RootState} from '../reducers'
 
 describe('app/App', () => {
@@ -66,9 +66,6 @@ describe('app/App', () => {
 
             beforeEach(() => {
                 initialState = {
-                    homePage: {
-                        counter: { value: 1},
-                    },
                     uiBlockers: {
                         list: [
                             {
@@ -84,8 +81,6 @@ describe('app/App', () => {
                 result = mapStateToProps(initialState)
             })
 
-
-
             it('should return new state indicating ui blockage', () => {
                 expect(result).toEqual({
                     uiBlocked: true
@@ -96,9 +91,6 @@ describe('app/App', () => {
         describe('UI is not blocked', () => {
             beforeEach(() => {
                 initialState = {
-                    homePage: {
-                        counter: { value: 1},
-                    },
                     uiBlockers: {
                         list: [],
                         count: 0
